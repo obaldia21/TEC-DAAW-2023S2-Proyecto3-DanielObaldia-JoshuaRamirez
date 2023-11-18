@@ -1,0 +1,29 @@
+import { Component, OnInit } from '@angular/core';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { CrudService } from 'src/app/services/crud.service';
+
+// Importar Modelos
+import { Events } from 'src/app/models/events.model';
+
+@Component({
+  selector: 'app-show-events',
+  templateUrl: './show-events.component.html',
+  styleUrls: ['./show-events.component.css']
+})
+export class ShowEventsComponent implements OnInit{
+
+  events: Events[] = [];
+
+
+  constructor(private crudService: CrudService) { }
+
+  ngOnInit(): void {
+    this.crudService.getEvents().subscribe((res:Events[]) => {
+      
+      console.log(res);
+      this.events = res;
+    })
+  }
+
+
+}

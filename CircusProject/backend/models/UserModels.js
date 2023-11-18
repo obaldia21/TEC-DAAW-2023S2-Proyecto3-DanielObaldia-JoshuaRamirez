@@ -1,23 +1,50 @@
 import mongoose from 'mongoose';
 
-// Crear Schema
+// Crear Schema para usuarios
 const UserSchema = new mongoose.Schema({
 
     // Atributos
 
-    nombre: {
+    userName: {
         type: String,
-        required: [true, "Intendando volver?"],
+        required: [true, "campo requerido"],
     },
 
-    email:{
+    userEmail:{
         type: String,
-        required: [true, "Intendando volver?"],
-    }
+        required: [true, "campo requerido"],
+    },
+    
+    userPassword: {
+        type: String,
+        required: [true, "campo requerido"],
+    },
+
+    userRole: {
+        type: String,
+        required: [true, "campo requerido"],
+    },
+
+    userDirection: {
+        type: String,
+        required: [true, "campo requerido"],
+    },
+
+    userCreditCard: {
+        type: String,
+        required: [true, "campo requerido"],
+    },
 
 
+},
 
-});
+{
+    timestamps: true,
+    versionKey: false,
+}
+);
+
 
 // Crear modelo a partir del Schema
-export const User = mongoose.model('User', UserSchema);
+export const User = mongoose.model('users', UserSchema);
+

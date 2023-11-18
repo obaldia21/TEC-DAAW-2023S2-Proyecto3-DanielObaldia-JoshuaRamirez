@@ -6,17 +6,33 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EventsListComponent } from './components/events-list/events-list.component';
 import { LoginComponent } from './components/login/login.component';
+import { ShowEventsComponent } from './pages/show-events/show-events.component';
+import { GenericFormComponent } from './components/generic-form/generic-form.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+// Importar HttpClientModule para hacer peticiones a nuestro backend
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import { CreateUserComponent } from './pages/create-user/create-user.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     EventsListComponent,
-    LoginComponent
+    LoginComponent,
+    ShowEventsComponent,
+    GenericFormComponent,
+    HomeComponent,
+    CreateUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

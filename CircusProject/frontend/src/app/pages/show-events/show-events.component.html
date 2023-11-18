@@ -1,0 +1,45 @@
+
+<div class="container text-center">
+
+    <div class="mt-4">
+        <h1>Show disponibles</h1>
+        
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            
+            <thead>
+                <tr class="table-info">
+                    
+                    <th>Nombre de evento</th>
+                    <th>Fecha</th>
+                    <th>Ubicación</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Artistas</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let event of events">
+                    
+
+                    <td>{{event.eventName}}</td>
+                    <td>{{event.eventDate}}</td>
+                    <td>{{event.eventLocation}}</td>
+                    <td>{{event.eventSynopsis}}</td>
+                    <td>{{event.eventPrice}}</td>
+                    <td>{{event.eventArtist}}</td>
+
+                </tr>
+
+            </tbody>
+
+
+
+        </table>
+    </div>
+
+</div>
