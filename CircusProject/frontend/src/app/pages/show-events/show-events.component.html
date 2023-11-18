@@ -1,44 +1,26 @@
 
 <div class="container text-center">
-
     <div class="mt-4">
         <h1>Show disponibles</h1>
-        
     </div>
 
-
-    <div class="table-responsive">
-        <table class="table table-hover">
-            
-            <thead>
-                <tr class="table-info">
-                    
-                    <th>Nombre de evento</th>
-                    <th>Fecha</th>
-                    <th>Ubicación</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Artistas</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr *ngFor="let event of events">
-                    
-
-                    <td>{{event.eventName}}</td>
-                    <td>{{event.eventDate}}</td>
-                    <td>{{event.eventLocation}}</td>
-                    <td>{{event.eventSynopsis}}</td>
-                    <td>{{event.eventPrice}}</td>
-                    <td>{{event.eventArtist}}</td>
-                    
-
-                </tr>
-
-            </tbody>
-
-        </table>
+    <div class="row justify-content-center">
+        <div class="col" *ngFor="let event of events">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{event.eventName}}</h5>
+                    <p class="card-text">
+                        Fecha: {{event.eventDate}}<br>
+                        Ubicación: {{event.eventLocation}}<br>
+                        Descripción: {{event.eventSynopsis}}<br>
+                        Precio: {{event.eventPrice}}<br>
+                        Artistas: {{event.eventArtist}}
+                    </p>
+                    <a href="/{{event.id}}" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
     </div>
-
+    
 </div>
+
