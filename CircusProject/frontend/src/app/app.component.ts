@@ -20,10 +20,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.crudService.getUsers().subscribe((res) => {
-      console.log(res);
-    });
-
   }
 
 }

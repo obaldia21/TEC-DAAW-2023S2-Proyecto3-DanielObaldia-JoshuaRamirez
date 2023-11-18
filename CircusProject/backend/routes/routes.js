@@ -23,8 +23,8 @@ router.delete('/:id', deleteUser);
 router.post('/', createUser);
 */
 
-router.route('/').get(getUser).post(createUser);
-router.route('/:id').put(updateUser).delete(deleteUser).get(getUserById);
+//router.route('/').get(getUser).post(createUser);
+//router.route('/:id').put(updateUser).delete(deleteUser).get(getUserById);
  
 
 // ------------------------ |Rutas para las peticiones de Eventos| ------------------------

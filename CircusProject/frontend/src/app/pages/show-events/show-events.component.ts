@@ -5,6 +5,8 @@ import { CrudService } from 'src/app/services/crud.service';
 // Importar Modelos
 import { Events } from 'src/app/models/events.model';
 
+
+
 @Component({
   selector: 'app-show-events',
   templateUrl: './show-events.component.html',
@@ -19,8 +21,7 @@ export class ShowEventsComponent implements OnInit{
 
   ngOnInit(): void {
     this.crudService.getEvents().subscribe((res:Events[]) => {
-      
-      console.log(res);
+    
       this.events = res;
     })
   }
