@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
+import { GetEventComponent } from './pages/get-event/get-event.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
     GenericFormComponent,
     HomeComponent,
     CreateUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    GetEventComponent
   ],
   imports: [
     BrowserModule,

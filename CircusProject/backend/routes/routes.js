@@ -30,7 +30,7 @@ router.route('/:id').put(updateUser).delete(deleteUser).get(getUserById);
 // ------------------------ |Rutas para las peticiones de Eventos| ------------------------
 
 router.get("/", getEvents);
-router.get("/:id",getEvent);
+router.get("getEvent/:id",getEvent);
 
 
 // ------------------------ |Rutas para las peticiones de Ordenes de compra| ------------------------
