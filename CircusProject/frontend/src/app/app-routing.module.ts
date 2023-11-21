@@ -10,6 +10,10 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { GetEventComponent } from './pages/get-event/get-event.component';
 
+
+// Componentes generales
+import { LoginComponent } from './components/login/login.component';
+
 const routes: Routes = [
    // Rutas de Events
    {path: '', component: ShowEventsComponent},
@@ -21,7 +25,9 @@ const routes: Routes = [
    {path: 'editUser/:id', component: EditUserComponent},
  
    // General
-   {path: '**',redirectTo:''}
+   //{path: '**',redirectTo:''},
+
+   {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
