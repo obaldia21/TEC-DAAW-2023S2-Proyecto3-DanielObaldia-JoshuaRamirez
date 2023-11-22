@@ -13,3 +13,11 @@ height: calc(100% - 73px);
 height: 100%;
 }
 }
+
+
+/* ID DEL COMPONETE PARA CSS*/
+#imgLogo{
+    width: 100%;
+    height: auto;
+    border-radius: 10%;
+}

@@ -43,7 +43,7 @@ const PORT = process.env.PORT
 const MongoURI = process.env.MONGO_URI;
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello World! This is the Circus Project');
 })
 
 
@@ -53,7 +53,7 @@ const startServer = async () => {
 
     try{
         await connectDB(MongoURI);
-        console.log("Connected to DB");
+        console.log("Connected to DB", MongoURI);
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
     } catch(error) {
