@@ -16,6 +16,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { GetEventComponent } from './pages/get-event/get-event.component';
+import { ViewcomponentComponent } from './viewcomponent/viewcomponent.component';
+import { BuyticketsComponent } from './pages/buytickets/buytickets.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { GetEventComponent } from './pages/get-event/get-event.component';
     HomeComponent,
     CreateUserComponent,
     EditUserComponent,
-    GetEventComponent
+    GetEventComponent,
+    ViewcomponentComponent,
+    BuyticketsComponent
   ],
   imports: [
     BrowserModule,
