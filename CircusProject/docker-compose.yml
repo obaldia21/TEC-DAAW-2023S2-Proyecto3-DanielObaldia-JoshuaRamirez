@@ -2,20 +2,27 @@ version: '3'
 services:
   backend:
     image: node:latest
-    working_dir: /app/BACKEND 
-    volumes:    
-      - ./BACKEND:/app/BACKEND
-    command: sh -c "npm install && npm start"
+    working_dir: /app/backend
+    volumes:
+      - ./backend:/app/backend
+    command: sh -c "npm install && npm run dev"
     ports:
-      - "5000:5000"
+      - "8000:8000"
+    depends_on:
+      - mongo
 
   frontend:
     image: node:latest
-    working_dir: /app/FRONTEND
+    working_dir: /app/frontend
     volumes:
-      - ./FRONTEND:/app/FRONTEND      
+      - ./frontend:/app/frontend
     command: sh -c "npm install && npm install -g @angular/cli && ng serve --host 0.0.0.0 --port 4200"
     ports:
       - "4200:4200"
     depends_on:
       - backend
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"

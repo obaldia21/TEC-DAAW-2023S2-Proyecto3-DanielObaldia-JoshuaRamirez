@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.set("strictQuery", false);
+//mongoose.set("strictQuery", false);
 
 export const connectDB = (uri) => {
     
