@@ -1,22 +1,21 @@
-# Builder container to compile typescript
-FROM node:lts-alpine AS build
-WORKDIR /usr/src/app
- 
-# Install dependencies
-COPY package.json .
-COPY package-lock.json .
-RUN npm ci
- 
-# Copy the application source
+# Stage 1: Build
+FROM node:latest as build
+
+WORKDIR /app
+
+COPY package.json package,json
+
+RUN npm install
+
+FROM node:latest AS builder
+WORKDIR /app
+COPY --from=build /app/node_modules ./node_modules
 COPY . .
-# Build typescript
-RUN npm run build
- 
- 
- 
-FROM nginx:stable-alpine
- 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
- 
+
+# Stage 2: Serve
+FROM nginx:latest
 EXPOSE 80
+
+# Copiar desde el directorio de construcción correcto
+COPY --from=builder /app/dist/CircusProject /usr/share/nginx/html
+CMD [ "nginx", "-g", "daemon off;" ]

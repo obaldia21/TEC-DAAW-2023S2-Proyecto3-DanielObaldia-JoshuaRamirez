@@ -1,14 +1,15 @@
-# Builder container to compile typescript
-FROM node:lts-alpine AS build
+FROM node:latest
+
+RUN mkdir -p /usr/src/app
+
 WORKDIR /usr/src/app
- 
-# Install dependencies
-COPY package.json .
-COPY package-lock.json .
-RUN npm ci
- 
-# Copy the application source
+
+COPY package*.json ./
+
+RUN npm install
+
 COPY . .
- 
+
 EXPOSE 8000
-CMD [ "npm", "run" , "dev"]
+
+CMD [ "npm", "run", "dev" ]
