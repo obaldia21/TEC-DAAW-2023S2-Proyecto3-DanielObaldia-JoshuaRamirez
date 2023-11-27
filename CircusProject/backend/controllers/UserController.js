@@ -40,8 +40,11 @@ export const getUserById = async (req,res) => {
 //  Crear método para crear un usuario, utilizando mongoose y json
 
 export const createUser = async (req, res) => {
+    console.log(req.body); 
+
     try{
         const user = await User.create(req.body);
+        
         res.status(201).json(user);
 
     } catch(error){
@@ -50,14 +53,36 @@ export const createUser = async (req, res) => {
 }
 
 
-export const updateUser = (req, res) => {
+// Método para iniciar sesión
 
-    res.json({ msg: "updateUser" });
+export const loginUser = async (req, res) => {
+    try {
+        // Asegúrate de que recibes el email y password correctamente
+        const email = req.body.email;
+        const password = req.body.password;
 
-}
 
-export const deleteUser = (req, res) => {
+        // Buscar al usuario por su email
+        const user = await User.findOne({ userEmail: email });
 
-    res.json({ msg: "deleteUser" });
+        // Verificar si se encontró el usuario
+        if (!user) {
+            return res.status(401).json({ message: 'Autenticación fallida. Usuario no encontrado.' });
+        }
 
-}
+        // Comparar la contraseña proporcionada con la almacenada en la base de datos
+        const isMatch = password === user.userPassword;
+
+        // Si las contraseñas no coinciden, enviar un error
+        if (!isMatch) {
+            return res.status(401).json({ message: 'Autenticación fallida. Contraseña incorrecta.' });
+        }
+
+        // Si la autenticación es exitosa, enviar confirmación
+        res.status(200).json({ message: 'Inicio de sesión exitoso', user });
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error del servidor: ' + error.message });
+    }
+};
+

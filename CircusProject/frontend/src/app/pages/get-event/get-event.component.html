@@ -1,1 +1,34 @@
-<p>get-event works!</p>
+
+  <div class="container">
+  
+    <div class="row justify-content-center align-items-center vh-100">
+  
+  
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div *ngIf="event">
+          <div class="card mt-2">
+            <img src="../../../assets/{{event.picture}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ event.eventName }}</h5>
+              <p class="card-text">{{ event.eventSynopsis }}</p>
+              <p>{{ event.eventSynopsis }}</p>
+              <p>Fecha: {{ event.eventDate| date }}</p>
+              Fecha: {{event.eventDate}}<br>
+              Artistas: {{event.eventArtist}}<br>
+              Lugar: {{event.eventLocation}}<br>
+              Precio: {{event.eventPrice}}<br>
+  
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>
+
+  
+
+
+
+  

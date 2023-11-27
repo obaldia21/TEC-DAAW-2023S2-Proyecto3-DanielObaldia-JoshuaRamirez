@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 import { CrudService } from 'src/app/services/crud.service';
 
 // Importar Modelos
@@ -17,7 +18,7 @@ export class ShowEventsComponent implements OnInit{
   events: Events[] = [];
 
 
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService: CrudService, private router: Router) { }
 
   ngOnInit(): void {
     this.crudService.getEvents().subscribe((res:Events[]) => {
@@ -25,6 +26,8 @@ export class ShowEventsComponent implements OnInit{
       this.events = res;
     })
   }
+
+  
 
 
 }

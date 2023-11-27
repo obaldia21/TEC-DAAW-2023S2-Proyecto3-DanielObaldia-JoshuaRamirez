@@ -1,1 +1,54 @@
-<p>create-user works!</p>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h1 class="mt-5">Crear usuario</h1>
+            <form [formGroup]="formUser" (ngSubmit)="onSubmit(formUser.value)" class="mt-5">
+                <!-- USERNAME -->
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">UserName</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="userName">
+                    </div>
+                </div> 
+                <!-- USEREMAIL -->
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="userEmail">
+                    </div>
+                </div>
+                <!-- USERPASSWORD -->
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="userPassword">
+                    </div>
+                </div>
+
+                <!-- USERDIRECTION -->
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Direction</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="userDirection">
+                    </div>
+                </div>
+
+                <!-- USERCREDITCARD -->
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Credit Card</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="userCreditCard">
+                    </div>
+                </div>
+
+                <!-- VALID BUTTON -->
+                <div class="btn-group float-end" role="group">
+                    <button type="submit" class="btn btn-primary" [disabled]="!formUser.valid">Crear usuario</button>
+                    <a routerLink="/" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>

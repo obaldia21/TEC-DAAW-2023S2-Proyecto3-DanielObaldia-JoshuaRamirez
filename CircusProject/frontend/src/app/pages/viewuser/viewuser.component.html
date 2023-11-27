@@ -1,1 +1,29 @@
-<p>viewuser works!</p>
+<div class="container text-center">
+  
+    <div class="row justify-content-center align-items-center mt-5">
+
+        <h1>Información del Usuario</h1>
+
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div *ngIf="user">
+
+            
+          <div class="card mt-2">
+        
+
+            <div class="card-body">
+              <h5 class="card-title">{{ user.userName }}</h5>
+              
+              
+              <p>Email: {{ user.userEmail }}</p>
+              <p>Dirección: {{user.userDirection}}</p><br>
+              <p>Credit Card: {{user.userCreditCard}}</p><br>
+  
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>

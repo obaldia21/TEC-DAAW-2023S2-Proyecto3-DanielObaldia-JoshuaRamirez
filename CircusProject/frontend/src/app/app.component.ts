@@ -11,7 +11,7 @@ import { CrudService } from './services/crud.service';
 
 // OnInit para inicializar el componente
 export class AppComponent implements OnInit{
-  title = 'frontend';
+  title = 'CircusProject';
 
 
   // Nuevo consructor para inyecciones (Patron de diseño POO)

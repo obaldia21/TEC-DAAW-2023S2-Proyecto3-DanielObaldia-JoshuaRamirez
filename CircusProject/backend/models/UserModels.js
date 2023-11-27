@@ -20,11 +20,6 @@ const UserSchema = new mongoose.Schema({
         required: [true, "campo requerido"],
     },
 
-    userRole: {
-        type: String,
-        required: [true, "campo requerido"],
-    },
-
     userDirection: {
         type: String,
         required: [true, "campo requerido"],

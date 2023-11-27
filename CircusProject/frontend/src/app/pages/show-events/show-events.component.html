@@ -8,15 +8,15 @@
         <div class="col" *ngFor="let event of events">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{event.eventName}}</h5>
+                    <img src="../../../assets/{{event.picture}}" class="card-img-top" alt="...">
+                    <h5 class="card-title mt-2">{{event.eventName}}</h5>
                     <p class="card-text">
-                        Fecha: {{event.eventDate}}<br>
-                        Ubicación: {{event.eventLocation}}<br>
-                        Descripción: {{event.eventSynopsis}}<br>
-                        Precio: {{event.eventPrice}}<br>
-                        Artistas: {{event.eventArtist}}
+                        Sinopsis: {{event.eventSynopsis}}<br>
+                    
                     </p>
-                    <a href="getEvent/{{event.id}}" class="btn btn-primary">Ver más</a>
+                </div>
+                <div class="card-footer">
+                    <a href="getEvent/{{event._id}}" class="btn btn-primary">Ver más</a>
                 </div>
             </div>
         </div>

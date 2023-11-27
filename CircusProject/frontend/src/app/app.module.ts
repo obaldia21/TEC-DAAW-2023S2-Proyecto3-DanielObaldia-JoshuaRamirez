@@ -20,6 +20,10 @@ import { GetEventComponent } from './pages/get-event/get-event.component';
 import { BuyticketsComponent } from './pages/buytickets/buytickets.component';
 import { ViewuserComponent } from './pages/viewuser/viewuser.component';
 
+//Formularios de Angular
+
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,9 @@ import { ViewuserComponent } from './pages/viewuser/viewuser.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

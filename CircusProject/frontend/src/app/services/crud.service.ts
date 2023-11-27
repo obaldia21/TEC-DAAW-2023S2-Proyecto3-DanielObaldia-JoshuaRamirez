@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 // IMPORTAR MODELOS
 import { User } from '../models/user.model';
-import { Events } from '../models/events.model';
+import { Events, Event } from '../models/events.model';
 
 
 // HACER PETICIONES A NUESTRO BACKEND
@@ -58,7 +58,7 @@ export class CrudService {
   //Ver un único usuario en específico
 
   getUser(id:any){
-    return this.httpClient.get(`this.REST_API_USERS/${id}`,{headers: this.httpHeaders}).pipe(
+    return this.httpClient.get(`${this.REST_API_USERS}/getUser/${id}`,{headers: this.httpHeaders}).pipe(
       map((res:any)=>{
         return res || {}
       }));
@@ -68,7 +68,7 @@ export class CrudService {
 
   createUser(data:User): Observable<any>{
     return this.httpClient
-    .post(this.REST_API_USERS,data,{headers: this.httpHeaders})
+    .post('http://localhost:8000/api/users/createUser',data,{headers: this.httpHeaders})
     .pipe(catchError(this.handleError));
   }
 
@@ -88,6 +88,17 @@ export class CrudService {
     .pipe(catchError(this.handleError));
   }
 
+  userLogin(credentials: {userEmail: string, userPassword: string}): Observable<any>{
+
+    const loginCredentials = {
+      email: credentials.userEmail,
+      password: credentials.userPassword
+    }
+
+
+    return this.httpClient.post<any>(`${this.REST_API_USERS}/login`,loginCredentials,{headers: this.httpHeaders})
+  }
+
   // -------------------------------------------- TICKETS --------------------------------------------
 
   // DEFINIR VARIABLE API TICKETS
@@ -105,13 +116,15 @@ export class CrudService {
   }
 
   //Ver un único evento en específico
-  getEventbyId(id:any){
-    return this.httpClient.get(`this.REST_API_EVENTS/${id}`,{headers: this.httpHeaders})
-    .pipe(
+  getEventbyId(eventId:any){
+    return this.httpClient.get(`${this.REST_API_EVENTS}/${eventId}`,{headers: this.httpHeaders}).pipe(
       map((res:any)=>{
         return res || {}
       }));
   }
 
+  getEventDetails(eventId: string): Observable<Events>{
+    return this.httpClient.get<Events>(`${this.REST_API_EVENTS}/${eventId}`)
+  }
 
 }

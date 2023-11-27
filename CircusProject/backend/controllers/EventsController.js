@@ -14,11 +14,17 @@ export const getEvents = async (req, res) => {
 //Extraer un evento por id
 
 export const getEvent = async (req, res) => {
-    const { id } = req.params;
+    
     try {
-        const event = await EventsModel.findById(id);
+        const event = await EventsModel.findById(req.params.id);
+        
+        if (!event) {
+            res.status(404).json({ message: `Event not ${id} found` });
+        }
         res.status(200).json(event);
     } catch (error) {
         res.status(404).json({ message: error.message });
+        
     }
+    
 }

@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getUser, createUser, updateUser, deleteUser, getUserById } from '../controllers/UserController.js';
+import { getUser, createUser, loginUser, getUserById} from '../controllers/UserController.js';
 import { getEvents, getEvent } from '../controllers/EventsController.js';
 
 
@@ -23,14 +23,21 @@ router.delete('/:id', deleteUser);
 router.post('/', createUser);
 */
 
-//router.route('/').get(getUser).post(createUser);
-router.route('/:id').put(updateUser).delete(deleteUser).get(getUserById);
+
+//router.route('/:id').put(updateUser).delete(deleteUser).get(getUserById);
  
+router.route('/createUser').post(createUser);
+router.route('/getUser/:id').get(getUserById);
+
+router.post('/login', loginUser);
+
 
 // ------------------------ |Rutas para las peticiones de Eventos| ------------------------
 
 router.get("/", getEvents);
-router.get("getEvent/:id",getEvent);
+
+// Ruta para extraer un id y hacer la funcion getEvent
+router.route("/:id").get(getEvent);
 
 
 // ------------------------ |Rutas para las peticiones de Ordenes de compra| ------------------------
